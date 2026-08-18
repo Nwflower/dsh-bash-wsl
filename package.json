@@ -1,0 +1,38 @@
+{
+  "name": "dsh-bash-wsl",
+  "version": "0.1.0",
+  "description": "Route the Windows-side DeepSeek Harness bash tool into WSL: run bash in the WSL distro with automatic workdir mapping from D:\\... to /mnt/d/...",
+  "type": "module",
+  "main": "./index.mjs",
+  "exports": {
+    ".": "./index.mjs",
+    "./wsl-shell.mjs": "./wsl-shell.mjs",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.mjs",
+    "wsl-shell.mjs",
+    "cordis.patch.yml",
+    "README.md",
+    "README.zh-CN.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-shell": "^0.1.0-rc.5",
+    "@deepseek-ai/dsh-bash-local": "^0.1.0-rc.5"
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "wsl",
+    "bash",
+    "linux",
+    "windows",
+    "bridge"
+  ],
+  "license": "MIT"
+}

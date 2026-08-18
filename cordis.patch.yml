@@ -1,0 +1,12 @@
+# dsh-bash-wsl bundle 声明：把 Windows 侧 dsh 的 bash 执行器路由到 WSL。
+# 可选 config（部署时按需覆盖，缺省见 README「Configuration / 配置」）：
+#   - id: dsh-bash-wsl
+#     name: dsh-bash-wsl
+#     config:
+#       distro: Ubuntu   # WSL 发行版名（缺省 Ubuntu）
+#       cwd: D:\Build    # 宿主工作目录（缺省 process.cwd()）
+- insert:
+    - id: dsh-bash-wsl
+      name: dsh-bash-wsl
+      config:
+        distro: Ubuntu
