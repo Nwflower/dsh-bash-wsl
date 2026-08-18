@@ -16,8 +16,10 @@
 
 ## 生态检索
 
-- `dsh.so`（2058 artifacts）、`dshplugin.dev`、`awesome-dsh-plugin` 检索：**无 WSL bash 路由 / 路径映射插件**。
-- 结论：空白，需自建。
+- `dsh.so`、`dshplugin.dev`、`awesome-dsh-plugin`、GitHub（`gh search repos`）检索后发现已有同类：
+  - **`dsh-plugin-bash-wsl`**（`tianyu030225-lang/dsh-wsl-bash`）：已提供持久化 WSL shell + `wsl_bash` + `git_bash` + `bwrap` 沙箱 + `doctor` 诊断。
+  - `kevin090820/dsh-wsl-bash`：疑似 fork/变体。
+- **决策（方案 B）**：不与它重复造轮子，本插件走「极简、零依赖」差异化——只做一次性 WSL bash + 自动 `/mnt` 路径映射，不引入 `bwrap`/`script`/`realpath` 依赖。README 已注明区别。
 
 ## 为什么走「Win 端跑 + bash 落 WSL」
 

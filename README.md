@@ -27,3 +27,18 @@ workdir (`D:\...`) to its WSL path (`/mnt/d/...`). It does not occupy `ctx.shell
 (already taken by the pwsh executor on Windows), so `bash` and `pwsh` coexist.
 
 See `docs/design.md` for architecture and `dev/REQUIREMENTS.md` for the full spec.
+
+## vs. dsh-plugin-bash-wsl
+
+A more feature-complete sibling, [`dsh-plugin-bash-wsl`](https://github.com/tianyu030225-lang/dsh-wsl-bash), provides persistent WSL shells, Git Bash, `bwrap` sandboxing, and a `doctor` diagnostic. This plugin deliberately takes the opposite trade-off — **minimal and zero-dependency**:
+
+| | dsh-bash-wsl | dsh-plugin-bash-wsl |
+|---|---|---|
+| One-shot WSL command | ✅ `bash` | ✅ `wsl_bash` |
+| Persistent shell | ❌ | ✅ `bash` |
+| Git Bash | ❌ | ✅ `git_bash` |
+| Sandbox (`bwrap`) | ❌ | ✅ |
+| `doctor` diagnostic | ❌ | ✅ |
+| Extra deps in WSL | none | `bwrap` / `script` / `realpath` |
+
+Choose this plugin when you want the lightest possible WSL bash with automatic `/mnt` workdir mapping and no extra WSL dependencies.

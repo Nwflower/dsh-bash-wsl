@@ -12,6 +12,7 @@ V1 立项完成，进入原型开发。
 - Windows 侧 `bash` 工具当前禁用（无本地 bash）。
 - **关键决策**：`ctx.shell` 在 Windows 侧已被 `SandboxPwshExecutor`（pwsh）注册，重复注册冲突。故本插件改为注册**独立 `bash` 工具**（`ctx.tools.register`），与 pwsh 共存。
 - **V1 已跑通**：`wsl.exe -d Ubuntu --cd /mnt/d/Build -e bash -c "pwd"` 返回 `/mnt/d/Build`，且在 WSL Linux 内核执行。
+- **定位决策（方案 B）**：发现已有 `dsh-plugin-bash-wsl`（持久化 + git_bash + bwrap + doctor，更全）。本插件走「极简、零依赖」差异化：只做一次性 WSL bash + 路径映射，不引入 bwrap 依赖。README 已注明区别。
 
 ## 待办 / 风险
 
